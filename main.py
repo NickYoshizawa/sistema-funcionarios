@@ -121,9 +121,9 @@ class App():
         """
         print("="*10 + " Atualizando Funcionário " + "="*10 + "\n")
         cpfOriginal = input_cpf("Digite o CPF do funcionario que deseja atualizar: ")
-        funcionario = info_funcionario(cpfOriginal)
+        funcionario = buscar_funcionario(cpfOriginal)
         if(funcionario):
-            print(buscar_funcionario(cpfNovo))
+            mostrar_funcionario(funcionario)
             r = str(input('Digite "S" para confirmar a edição do funcionário acima: ')).strip().upper()[0]
             if r == "S":
                 print("Deixe o campo em branco caso não deseje editar.")
@@ -136,7 +136,7 @@ class App():
                             break
                     except Exception as e:
                         print(e)
-                nome = input_str(f"Nome do funcionario ({funcionario[0]}): ", True).strip().title()
+                nome = input_str(f"Nome do funcionario ({funcionario[1]}): ", True).strip().title()
                 idade = input_idade(f"Idade do funcionario ({funcionario[2]}): ", True)
                 cargo = input_str(f"Cargo do funcionario ({funcionario[3]}): ", True).strip().title()
                 salario = input_float(f"Salário do funcionario ({funcionario[4]}): R$", True)
@@ -145,6 +145,7 @@ class App():
                 escolaridade = input_str(f"Escolaridade do funcionario ({funcionario[7]}): ", True).strip().title()
                 email = input_gmail(f"Email Google do funcionario ({funcionario[8]}): ", True)
                 editar_funcionario(cpfOriginal, cpfNovo, nome, idade, cargo, salario, cidade, estado, escolaridade, email)
+                print("="*20 + " Editado com Sucesso " + "="*20 + "\n")
             else:
                 print("="*20 + " Fim " + "="*20 + "\n")
                 return
@@ -161,7 +162,7 @@ class App():
             funcionario = buscar_funcionario(cpf)
             if funcionario:
                 print("\n" + "="*20 + " Funcionário " + "="*20)
-                print(funcionario)
+                mostrar_funcionario(funcionario)
                 break
             else:
                 print(f"Nenhum funcionário com CPF: {cpf} foi encontrado.")
@@ -175,18 +176,7 @@ class App():
         print("="*15 + " Lista de Funcionários " + "="*15 + "=")
         funcionarios = listar_funcionarios()
         for funcionario in funcionarios:
-            print(f"""
-            ================================================
-            CPF: {funcionario[0]}
-            Funcionario {funcionario[1]}:
-            Idade: {funcionario[2]}
-            Cargo: {funcionario[3]}
-            Salario: {funcionario[4]}
-            Cidade e Estado que reside: {funcionario[5]} - {funcionario[6]}
-            Escolaridade: {funcionario[7]}
-            Email: {funcionario[8]}
-            ================================================
-        """)
+            mostrar_funcionario(funcionario)
         print("="*20 + " Fim da lista " + "="*20)
     
 if __name__ == '__main__':

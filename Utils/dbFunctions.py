@@ -52,15 +52,21 @@ def adicionar_funcionario(
     ''', (cpf, nome, idade, cargo, salario, cidade, estado, escolaridade, email))
     conexao.commit()
     conexao.close()
-    
-def info_funcionario(cpf: int) -> tuple:
-    conexao = conectar()
-    cursor = conexao.cursor()
-    cursor.execute('SELECT * FROM tbFuncionario WHERE cpf = ?', (cpf,))
-    funcionario = cursor.fetchone()
-    conexao.close()
-    return (funcionario[0], funcionario[1], funcionario[2], funcionario[3], funcionario[4], funcionario[5], funcionario[6], funcionario[7], funcionario[8])
-    
+
+def mostrar_funcionario(info_funcionario: tuple) -> None:
+    print(f"""
+            ================================================
+            CPF: {info_funcionario[0]}
+            Funcionario {info_funcionario[1]}:
+            Idade: {info_funcionario[2]}
+            Cargo: {info_funcionario[3]}
+            Salario: {info_funcionario[4]:.2f}
+            Cidade e Estado que reside: {info_funcionario[5]} - {info_funcionario[6]}
+            Escolaridade: {info_funcionario[7]}
+            Email: {info_funcionario[8]}
+            ================================================
+        """)
+
 def buscar_funcionario(cpf: int) -> str:
     """
     Busca um funcionário da tabela tbFuncionario
@@ -70,21 +76,7 @@ def buscar_funcionario(cpf: int) -> str:
     cursor.execute('SELECT * FROM tbFuncionario WHERE cpf = ?', (cpf,))
     funcionario = cursor.fetchone()
     conexao.close()
-    if funcionario:
-        return f"""
-            ================================================
-            CPF: {funcionario[0]}
-            Funcionario {funcionario[1]}:
-            Idade: {funcionario[2]}
-            Cargo: {funcionario[3]}
-            Salario: {funcionario[4]}
-            Cidade e Estado que reside: {funcionario[5]} - {funcionario[6]}
-            Escolaridade: {funcionario[7]}
-            Email: {funcionario[8]}
-            ================================================
-        """
-    else:
-        return None
+    return funcionario if funcionario else None
 
 def listar_funcionarios() -> tuple:
     """
@@ -97,7 +89,7 @@ def listar_funcionarios() -> tuple:
     conexao.close()
     return funcionarios
 
-def editar_funcionario(cpfOriginal, cpfNovo=None, nome=None, idade=None, cargo=None, salario=None, cidade=None, estado=None, escolaridade=None, email=None) -> None:
+def editar_funcionario(cpfOriginal, cpfNovo="", nome="", idade="", cargo="", salario="", cidade="", estado="", escolaridade="", email="") -> None:
     """
     Edita um funcionário da tabela tbFuncionario
     """
@@ -108,31 +100,31 @@ def editar_funcionario(cpfOriginal, cpfNovo=None, nome=None, idade=None, cargo=N
     valores = []
     
     
-    if cpfNovo is not None:
+    if cpfNovo != "":
         atualizacoes.append("cpf = ?")
         valores.append(cpfNovo)
-    if nome is not None:
+    if nome != "":
         atualizacoes.append("nome = ?")
         valores.append(nome)
-    if idade is not None:
+    if idade != "":
         atualizacoes.append("idade = ?")
         valores.append(idade)
-    if cargo is not None:
+    if cargo != "":
         atualizacoes.append("cargo = ?")
         valores.append(cargo)
-    if salario is not None:
+    if salario != "":
         atualizacoes.append("salario = ?")
         valores.append(salario)
-    if cidade is not None:
+    if cidade != "":
         atualizacoes.append("cidade = ?")
         valores.append(cidade)
-    if estado is not None:
+    if estado != "":
         atualizacoes.append("estado = ?")
         valores.append(estado)
-    if escolaridade is not None:
+    if escolaridade != "":
         atualizacoes.append("escolaridade = ?")
         valores.append(escolaridade)
-    if email is not None:
+    if email != "":
         atualizacoes.append("email = ?")
         valores.append(email)
 
