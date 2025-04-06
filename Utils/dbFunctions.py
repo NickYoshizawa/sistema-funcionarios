@@ -31,7 +31,7 @@ def criar_tabela() -> None:
     conexao.close()
 
 def adicionar_funcionario(
-        cpf: int,
+    cpf: int,
         nome: str,
         idade: int,
         cargo: str,
