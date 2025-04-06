@@ -6,35 +6,35 @@ class App():
         criar_tabela()
         funcoes = (self.adicionar_novo_func, self.atualizar_func, self.mostrar_func, self.mostrar_lista_func, self.remover_func)
         
-        """# Adicionando diretamente os funcionarios Nicolas e Lucas apenas para teste
-        # (Usar só se nao existir esses funcionarios no banco de dados)
         
-        adicionar_funcionario(
-            cpf = 12345678910,
-            nome = "Nicolas",
-            idade = 20,
-            cargo = "Analista de Suporte I",
-            salario = 2500.00,
-            cidade = "Bragança Paulista",
-            estado = "São Paulo",
-            escolaridade = "Cursando Ensino Superior",
-            email = "nicolas@gmail.com",
-        )
+        # Adicionando diretamente os funcionarios Nicolas e Lucas se eles não existirem
+        if buscar_funcionario(12345678910) == None:
+            adicionar_funcionario(
+                cpf = 12345678910,
+                nome = "Nicolas",
+                idade = 20,
+                cargo = "Analista de Suporte I",
+                salario = 2500.00,
+                cidade = "Bragança Paulista",
+                estado = "São Paulo",
+                escolaridade = "Cursando Ensino Superior",
+                email = "nicolas@gmail.com",
+            )
         
-        adicionar_funcionario(
-            cpf = 43563212345,
-            nome = "Lucas",
-            idade = 24,
-            cargo = "Dev Pleno",
-            salario = 8000.00,
-            cidade = "Bragança Paulista",
-            estado = "São Paulo",
-            escolaridade = "Ensino Superior Completo",
-            email = "lucas@gmail.com",
-        )
+        if buscar_funcionario(43563212345) == None:
+            adicionar_funcionario(
+                cpf = 43563212345,
+                nome = "Lucas",
+                idade = 24,
+                cargo = "Dev Pleno",
+                salario = 8000.00,
+                cidade = "Bragança Paulista",
+                estado = "São Paulo",
+                escolaridade = "Ensino Superior Completo",
+                email = "lucas@gmail.com",
+            )
+        # ==========================================================================
         
-        # ===================================================="""
-
         while True:
             print("""
             ========== Menu de Opcões ==========
