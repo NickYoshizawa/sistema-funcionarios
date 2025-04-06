@@ -84,7 +84,7 @@ def listar_funcionarios() -> tuple:
     """
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute('SELECT * FROM tbFuncionario')
+    cursor.execute('SELECT * FROM tbFuncionario ORDER BY nome ASC')
     funcionarios = cursor.fetchall()
     conexao.close()
     return funcionarios
