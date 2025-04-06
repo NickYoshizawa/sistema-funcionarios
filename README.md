@@ -3,7 +3,7 @@
 
 ![Badge de Versão](https://img.shields.io/badge/vers%C3%A3o-1.0-blue)
 ![Badge de Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
-![Badge de Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Badge de Status](https://img.shields.io/badge/status-conclu%C3%ADdo-brightgreen)
 
 ## Descrição
 
