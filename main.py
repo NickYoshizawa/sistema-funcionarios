@@ -101,7 +101,7 @@ class App():
             cpf = input_cpf("Digite o CPF do funcionario que deseja remover: ")
             funcionario = buscar_funcionario(cpf)
             if funcionario:
-                print(funcionario)
+                mostrar_funcionario(funcionario)
                 r = str(input('Digite "S" para confirmar a exclusão do funcionário acima: ')).strip().upper()[0]
                 if r == "S":
                     excluir_funcionario(cpf)
