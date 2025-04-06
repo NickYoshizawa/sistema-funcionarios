@@ -10,7 +10,7 @@ def input_str(msg: str, none_permission: bool = False):
                 raise Exception("Digite algo válido!")
         except Exception as e:
             print(e)
-    return x
+    return None if x == "" else x
 
 
 def input_float(msg: str, none_permission: bool = False) -> float:
@@ -23,7 +23,7 @@ def input_float(msg: str, none_permission: bool = False) -> float:
             break
         except:
             print("Valor inválido. Tente Novamente!")
-    return x
+    return None if x == "" else x
 
 def input_int(msg: str, none_permission: bool = False) -> int:
     while True:
@@ -35,7 +35,7 @@ def input_int(msg: str, none_permission: bool = False) -> int:
             break
         except:
             print("Valor inválido. Tente Novamente!")
-    return x
+    return None if x == "" else x
 
 def input_gmail(msg: str, none_permission: bool = False) -> str:
     while True:
@@ -48,7 +48,7 @@ def input_gmail(msg: str, none_permission: bool = False) -> str:
             break
         except Exception as e:
             print(e)
-    return x
+    return None if x == "" else x
 
 def input_idade(msg: str, none_permission: bool = False) -> int:
     while True:
@@ -59,14 +59,14 @@ def input_idade(msg: str, none_permission: bool = False) -> int:
             print("Idade inválida. Tente Novamente!")
             continue
         break
-    return x
+    return None if x == "" else x
 
 def input_cpf(msg: str, none_permission: bool = False) -> int:
     while True:
-        cpf = input_int(msg, none_permission=none_permission)
-        if cpf == "":
+        x = input_int(msg, none_permission=none_permission)
+        if x == "":
             break
-        if len(str(cpf)) == 11:
+        if len(str(x)) == 11:
             break
         print("CPF inválido. Tente Novamente!")
-    return cpf
+    return None if x == "" else x 
