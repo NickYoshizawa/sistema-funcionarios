@@ -57,13 +57,7 @@ Siga os passos abaixo para instalar e executar o projeto em seu ambiente local:
    source venv/bin/activate  # No Windows use: venv\Scripts\activate
    ```
 
-4. **Instale as dependências:**
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. **Execute a aplicação:**
+4. **Execute a aplicação:**
 
    ```bash
    python main.py
@@ -74,20 +68,6 @@ Siga os passos abaixo para instalar e executar o projeto em seu ambiente local:
 - Ao executar o `main.py`, um menu interativo será exibido no terminal, permitindo que você escolha as opções desejadas para gerenciar os funcionários.
 - Siga as instruções apresentadas para cadastrar, consultar, atualizar ou remover funcionários do sistema.
 
-## Contribuindo
-
-Contribuições são bem-vindas! Se você deseja contribuir com este projeto, siga os passos abaixo:
-
-1. Faça um fork deste repositório.
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`).
-3. Commit suas alterações (`git commit -m 'Adiciona nova feature'`).
-4. Faça o push para a branch (`git push origin feature/nova-feature`).
-5. Abra um Pull Request.
-
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT. Para mais detalhes, consulte o arquivo [LICENSE](LICENSE).
-
----
-
-*Este README foi elaborado com base nas melhores práticas recomendadas pela comunidade. Para mais informações sobre como criar um README eficaz, consulte [Como escrever um bom arquivo README para seu projeto do GitHub](https://www.freecodecamp.org/portuguese/news/como-escrever-um-bom-arquivo-readme-para-seu-projeto-do-github/).*
